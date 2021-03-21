@@ -1,6 +1,7 @@
 'use strict';
 let secretNumber;
 let score;
+let highscore=0;
 
 
 function init() {
@@ -25,6 +26,13 @@ document.querySelector('.check').addEventListener
             document.querySelector('.message').style.fontSize = '5rem';
             document.querySelector('body').style.backgroundColor = '#b00000';
             document.querySelector('.number').style.width = '30rem';
+
+            if (score > highscore) {
+                highscore = score;
+                document.querySelector('.highscore').textContent = highscore;
+            }
+
+
         } else if (guess > secretNumber) {
             if (score > 1) {
                 document.querySelector('.message').textContent = 'Too high!';
